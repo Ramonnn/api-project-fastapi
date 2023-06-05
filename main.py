@@ -36,6 +36,6 @@ def create_posts(post: Post):
     return {"data": post_dict}
 
 @app.get("/posts/{id}")
-def get_post(id):
-    post = find_post(int(id))
+def get_post(id: int):
+    post = find_post(id)
     return {"post_details": post}
