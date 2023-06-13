@@ -6,11 +6,14 @@ from urllib import parse
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
+from .config import settings
 
-with open(expanduser('~/.pgpass'), 'r') as f:
-    host, port, database, user, password = f.read().split(':')
+# with open(expanduser('~/.pgpass'), 'r') as f:
+#     host, port, database, user, password = f.read().split(':')
+#
+# SQLALCHEMY_DATABASE_URL = 'postgresql://{}:{}@{}/fastapi' .format(user,parse.quote(password.strip()), host)
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://{}:{}@{}/fastapi' .format(user,parse.quote(password.strip()), host)
+SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

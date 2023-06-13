@@ -1,5 +1,5 @@
 from pydantic import BaseSettings
-
+import pathlib
 
 class Settings(BaseSettings):
     database_hostname: str
@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int
 
     class Config:
-        env_file = ".env"
+        env_file = f"{pathlib.Path(__file__).resolve().parent}/.env"
 
 settings = Settings()
 
