@@ -1,6 +1,7 @@
 from pydantic import BaseSettings
 import pathlib
 
+
 class Settings(BaseSettings):
     database_hostname: str
     database_port: str
@@ -14,7 +15,5 @@ class Settings(BaseSettings):
     class Config:
         env_file = f"{pathlib.Path(__file__).resolve().parent}/.env"
 
+
 settings = Settings()
-
-
-
