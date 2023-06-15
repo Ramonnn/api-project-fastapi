@@ -4,3 +4,4 @@ credentials.txt
 venv/
 .terraform/
 .terraform.lock.hcl
+docker-compose.yml
